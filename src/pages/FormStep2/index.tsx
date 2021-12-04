@@ -41,7 +41,7 @@ export const FormStep2 = ()=> {
     <Theme>
       <C.Container>
         <p>Step 2/3</p>
-        <h1>{state.name}which option best describes you?</h1>
+        <h1>{state.name} which option best describes you?</h1>
         <p>which option best matches your current professional status?</p>
 
         <hr />
