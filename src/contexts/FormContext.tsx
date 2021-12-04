@@ -26,7 +26,7 @@ const initialData: State = {
   name: '',
   level: 0,
   email: '',
-  github: ''
+  github: '',
 }
 //Context
 const FormContext = createContext<ContextType | undefined>(undefined)

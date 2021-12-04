@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import * as C from './styles'
 import { useForm,FormActions } from '../../contexts/FormContext'
 import { Theme } from '../../components/Theme'
@@ -11,27 +11,38 @@ export const FormStep2 = ()=> {
   const { state, dispatch } = useForm()
 
   useEffect(() => {
-    dispatch({
-      type: FormActions.setCurrentStep,
-      payload: 2
-    })
+    if(state.name === '') {
+      navigate('Step1')
+    } else {
+      dispatch({
+        type: FormActions.setCurrentStep,
+        payload: 2
+      })
+    }
   }, [])
+
+  const setLevel = (level: number) => {
+    dispatch({
+      type: FormActions.setLevel,
+      payload: level
+    })
+  }
 
 
   const hundleNextStep = () => {
-    if(state.email !== '') {
+    if(state.name !== '') {
     navigate('/Step3')
     } else {
-      alert('Please fill in your email ')
+      alert('Please fill the data ')
     }
   }
 
   return (
     <Theme>
       <C.Container>
-        <p>Step 2/3 - {state.name} </p>
-        <h1>lets get start with your name.</h1>
-        <p>fill in the field below with your full name.</p>
+        <p>Step 2/3</p>
+        <h1>{state.name}which option best describes you?</h1>
+        <p>which option best matches your current professional status?</p>
 
         <hr />
 
@@ -39,13 +50,19 @@ export const FormStep2 = ()=> {
         title=' I am a beginner'
         description='I started the program less than 2 years ago'
         icon='🥳'
+        selected={state.level === 0}
+        onClick={()=>setLevel(0)}
         />
 
         <SelectOption 
         title='I am a Programmer'
         description='I have been programming for 2 years or more '
         icon='🥳'
+        selected={state.level === 1}
+        onClick={()=>setLevel(1)}
         />
+
+        <Link to='/Step1' className='backButton'>Back</Link>
         <button onClick={hundleNextStep}>Next</button>
 
      </C.Container>

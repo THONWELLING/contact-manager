@@ -45,4 +45,13 @@ export const Container = styled.div`
     cursor: pointer;
     margin-top: 30px;
   }
+  .backButton {
+    font-size: 14px;
+    text-decoration: none;
+    padding: 20px 40px;
+    color: #b8b8d4;
+    background-image: linear-gradient(to left, #ff8c00, #ff4500);
+    border-radius: 30px;
+    margin-right: 20px;
+  }
 `
