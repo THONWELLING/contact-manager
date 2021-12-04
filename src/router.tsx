@@ -9,9 +9,9 @@ export const Router = ()=> {
   return (
     <Routes>
       <Route path='/'  element={ <Home /> }/>
-      <Route path='/Step1'  element={ <FormsStep1 /> }/>
-      <Route path='/Step2'  element={ <FormStep2 /> }/>
-      <Route path='/Step3'  element={ <FormStep3 /> }/>
+      <Route path='/Step1'  element={ <FormsStep1 /> } />
+      <Route path='/Step2'  element={ <FormStep2 /> } />
+      <Route path='/Step3'  element={ <FormStep3 /> } />
     </Routes>
   )
 }
