@@ -68,6 +68,13 @@ export const FormStep3 = ()=> {
           onChange={hundleGithubChange}
           />
         </label>
+        <label>
+           Image
+          <input type='file'  
+          // value={state.github}
+          // onChange={hundleGithubChange}
+          />
+        </label>
 
 
         <Link to='/Step2' className='backButton'>Back</Link> 

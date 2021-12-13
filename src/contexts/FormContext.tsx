@@ -1,5 +1,10 @@
 //context, reducer, provider, Hook
-import { createContext, ReactNode, useContext, useReducer } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useReducer 
+} from 'react';
 
 type State = {
   currentStep: number
@@ -23,13 +28,14 @@ type FormProviderProps ={
 
 const initialData: State = {
   currentStep: 0,
-  name: '',
+  name: 'Wellington Oliveira Sousa',
   level: 0,
-  email: '',
-  github: '',
+  email: 'thonwellingdani13@gmail.com',
+  github: 'github.com/THONWELLING',
+  // image: FormData = new FormData()
 }
 //Context
-const FormContext = createContext<ContextType | undefined>(undefined)
+export const FormContext = createContext<ContextType | undefined>(undefined)
 
 //Reducer
 export enum FormActions {
@@ -37,7 +43,8 @@ export enum FormActions {
   setName,
   setLevel,
   setEmail,
-  setGithub
+  setGithub,
+  setImage
 }
 const formReducer = (state: State, action: Action) => {
   switch(action.type) {
@@ -51,6 +58,8 @@ const formReducer = (state: State, action: Action) => {
       return {...state, email: action.payload}
     case FormActions.setGithub:
       return {...state, github: action.payload}
+    case FormActions.setImage:
+      return {...state, image: action.payload}
     default:
       return state
   }
@@ -69,7 +78,7 @@ export const FormProvider = ({children}: FormProviderProps) => {
 
 //Context Hook
 export const useForm = () => {
-  const context =useContext(FormContext)
+  const context = useContext(FormContext)
   if(context === undefined) {
     throw new Error('useForm needs to be used inside of FormProvider')
   }
