@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   margin: 30px 0;
-  cursor: pointer;
+  text-align: center;
 
   button {
     background-color: #25cd89;
@@ -16,6 +16,9 @@ export const Container = styled.div`
     cursor: pointer;
     margin-top: 30px;
   }
+  h1 {
+    font-style: italic;
+  }
 `
 export const Contacts = styled.div`
   display: flex;
@@ -26,8 +29,23 @@ export const Contacts = styled.div`
   border: 1px solid #c0c0c0;
   border-radius: 10px;
 
-  p {
+  h2 {
+    font-style: italic;
+  }
+
+  li {
     font-size: 16px;
-    line-height: 20px
+    font-style: italic;
+    line-height: 30px;
+    list-style: none;
+  }
+  div {
+    display: flex;
+    justify-content: space-around;
+
+    img {
+      width: 200px;
+      border-radius: 10px;
+    }
   }
 `

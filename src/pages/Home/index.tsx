@@ -21,11 +21,16 @@ export const Home = ()=> {
       <C.Container>
         <button onClick={hundleNextStep}>Register Contact</button>
         <h1>List of Contacts</h1>
-        <C.Contacts>
-          <h2> {state.name}</h2>
-          <p>{`Name: ${state.name}`}</p>
-          <p>{`Email: ${state.email}`}</p>
-          <p>{`Github: ${state.github}`}</p>
+        <C.Contacts>  
+          <div>
+            <img src={state.photo}alt={state.name} />
+            <h2> {state.name}</h2>
+          </div>
+          <ul>
+            <li>{`Name:  ${state.name}`}</li>
+            <li>{`Email:  ${state.email}`}</li>
+            <li>{`Github:  ${state.github}`}</li>
+          </ul>
         </C.Contacts>
       </C.Container>
     </Theme>

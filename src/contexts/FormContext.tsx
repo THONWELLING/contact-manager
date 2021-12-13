@@ -1,10 +1,6 @@
 //context, reducer, provider, Hook
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useReducer 
-} from 'react';
+import { createContext, ReactNode, useContext, useEffect, useReducer } from 'react';
+
 
 type State = {
   currentStep: number
@@ -12,6 +8,7 @@ type State = {
   level: 0 | 1
   email: string
   github: string
+  photo: string
 }
 type Action = {
   type: FormActions
@@ -32,7 +29,7 @@ const initialData: State = {
   level: 0,
   email: 'thonwellingdani13@gmail.com',
   github: 'github.com/THONWELLING',
-  // image: FormData = new FormData()
+  photo: 'https://avatars.githubusercontent.com/u/81602215?v=4'
 }
 //Context
 export const FormContext = createContext<ContextType | undefined>(undefined)
@@ -65,10 +62,16 @@ const formReducer = (state: State, action: Action) => {
   }
 } 
 
+
 //Provider
 export const FormProvider = ({children}: FormProviderProps) => {
   const [state, dispatch] = useReducer(formReducer, initialData)
   const value = {state, dispatch}
+
+  useEffect(() => {
+    localStorage.setItem('ctx', JSON.stringify(state))
+  }, [state])
+
   return(
     <FormContext.Provider value={value}>
       {children}

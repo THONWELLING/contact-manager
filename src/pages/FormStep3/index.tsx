@@ -36,11 +36,12 @@ export const FormStep3 = ()=> {
 
   const hundleNextStep = () => {
     if(state.email !== '' && state.github !== '') {
-    alert(state)
+    alert(`${state.name} ${state.email}`)
     } else {
       alert('Please fill the data ')
     }
   }
+
 
   return (
     <Theme>
@@ -69,11 +70,8 @@ export const FormStep3 = ()=> {
           />
         </label>
         <label>
-           Image
-          <input type='file'  
-          // value={state.github}
-          // onChange={hundleGithubChange}
-          />
+           Photo: 
+          <input  type='file' />
         </label>
 
 
